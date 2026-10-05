@@ -1,0 +1,26 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Your_password123!"
+    ports:
+      - "14333:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  api:
+    build: .
+    depends_on:
+      - sqlserver
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=HotelBookingDb;User Id=sa;Password=Your_password123!;TrustServerCertificate=True"
+      Jwt__Key: "THIS_IS_A_DEMO_KEY_CHANGE_IT_IN_PRODUCTION_123456789"
+      Jwt__Issuer: "HotelBooking"
+      Jwt__Audience: "HotelBooking.Client"
+    ports:
+      - "8080:8080"
+
+volumes:
+  sql_data:

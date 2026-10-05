@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>enable</ImplicitUsings></PropertyGroup>
+  <ItemGroup><ProjectReference Include="..\HotelBooking.Domain\HotelBooking.Domain.csproj" /><ProjectReference Include="..\HotelBooking.Application\HotelBooking.Application.csproj" /></ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.8"><PrivateAssets>all</PrivateAssets></PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.8.15" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.8.15" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.2" />
+  </ItemGroup>
+</Project>
